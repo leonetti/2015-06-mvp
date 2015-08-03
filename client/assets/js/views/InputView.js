@@ -23,7 +23,7 @@ var InputView = Backbone.View.extend({
 		// the number 13 maps to the enter key
 		var isEnterKey = (e.which === 13);
 
-		if(isEnterKey && this.$el.val().trim().match(/[-\/\\^$*`_:"<>+?()|=[\]';{}]/)) {
+		if(isEnterKey && this.$el.val().trim().match(/[-\/\\^$*`~_:"<>+?()|=[\]';{}]/)) {
 
 	    	// sets placeholder text
 	    	this.$el.attr({
