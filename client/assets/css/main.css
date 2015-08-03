@@ -3140,11 +3140,14 @@
 		font-weight: 500;
 		letter-spacing: 1px;
 		border-radius: 10px;
+		border: 2px solid #E8C480;
 	}
 
 	#banner input:focus {
 		outline: none;
+		border: 2px solid #80aee8;
 	}
+
 
 /* Footer */
 
