@@ -17,28 +17,28 @@ Once the project moves into development, the press release can be used as a touc
  -->
  
 ## Heading ##
-  > Name the product in a way the reader (i.e. your target customers) will understand.
+  Local's Only
 
 ## Sub-Heading ##
-  > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+  The Traveler's Guide
 
 ## Summary ##
-  > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+  Introducing the top choices for doing stuff in your destination city. Local's Only will provide you with the top rated activities of your choice, without having to outsource to yelp.
 
 ## Problem ##
-  > Describe the problem your product solves.
+  When I am visiting a new city I always struggle to think of activities to do. 
 
 ## Solution ##
-  > Describe how your product elegantly solves the problem.
+  This web application will provide you with many fun activities that can help provide a plan to get the most out of your stay.
 
 ## Quote from You ##
-  > A quote from a spokesperson in your company.
+  Make the most out of your day with Local's Only!
 
 ## How to Get Started ##
-  > Describe how easy it is to get started.
+  Type in your address, a city, a zip code, or even a neighborhood and find activities near you with the click of a button.
 
 ## Customer Quote ##
-  > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+  When I visited San Francisco, I did not know what there was to do besides go see the Golden Gate Bridge. My experience the last 3 days has been greatly enhanced due to Local's Only.
 
 ## Closing and Call to Action ##
-  > Wrap it up and give pointers where the reader should go next.
+  Go visit Local's Only and plan your next trip!
