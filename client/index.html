@@ -28,9 +28,25 @@
 					<h2 id="main-title">Local's Choice</h2>
 					<p id="main-city">Enter Destination</p>
 					<form ng-submit="sendLocation(location)">
-						<input type='text' ng-model="location" autofocus>
+						<input type='text' ng-model="location" autofocus><br>
+					</form>
+
+					<form id='inputs'>
+						<div class='input-row'>
+							<input type='checkbox' name='Restaurants' ng-model='restaurants'><p>Restaurants</p>
+							<input type='checkbox' name='Bars' ng-model='bars'><p>Bars</p>
+							<input type='checkbox' name='Clubs' ng-model='clubs'><p>Clubs</p>
+							<input type='checkbox' name='Stores' ng-model='stores'><p>Stores</p>
+						</div>
+						<div class='input-row'>
+							<input type='checkbox' name='Parks' ng-model='parks'><p>Parks</p>
+							<input type='checkbox' name='Tourists' ng-model='tourists'><p>Tourist Activities</p>
+							<input type='checkbox' name='Yoga' ng-model='yoga'><p class='yoga'>Yoga Activities</p>
+						</div>
 					</form>
 				</section>
+
+
 
 			<!-- Main -->
 				<section id="main" class="container">
@@ -45,7 +61,7 @@
 						<span class="image featured" id="hero"></span>
 					</section>
 
-					<section class="box special features" id="restaurants" ng-show="data.restaurants">
+					<section class="box special features" id="restaurants" ng-show="restaurants && data.restaurants">
 						<h5>Restaurants</h5>
 						<div class="features-row">
 							<section>
@@ -69,7 +85,7 @@
 								</ul>
 							</section>
 						</div>
-						<div class="features-row" ng-show="data.restaurants">
+						<div class="features-row">
 							<section>
 								<img ng-src='{{data.restaurants[2].image_url}}' style="border-radius: 50%;">
 								<h3>{{data.restaurants[2].name}}</h3>
@@ -93,7 +109,7 @@
 						</div>
 					</section>
 
-					<section ng-show="data.club">
+					<section ng-show="clubs && data.club">
 						<h5>Clubs</h5>
 						<div class="row">
 							<div class="6u 12u(narrower)">
@@ -130,7 +146,7 @@
 
 
 
-					<section class="box special features" ng-show="data.store">
+					<section class="box special features" ng-show="stores && data.store">
 						<h5>Stores</h5>
 						<div class="features-row">
 							<section>
@@ -156,7 +172,7 @@
 						</div>
 					</section>
 
-					<section ng-show="data.bar">
+					<section ng-show="bars && data.bar">
 						<h5>Bars</h5>
 						<div class="row">
 							<div class="6u 12u(narrower)">
@@ -188,6 +204,8 @@
 
 							</div>
 
+						<div class="row">
+
 							<div class="6u 12u(narrower)">
 
 								<section class="box special">
@@ -216,7 +234,125 @@
 								</section>
 							</div>
 						</div>
+						</div>
 					</section>
+
+					<section class="box special features" ng-show="parks && data.parks">
+						<h5>Parks</h5>
+						<div class="features-row">
+							<section>
+								<img ng-src='{{data.parks[0].image_url}}' style="border-radius: 50%;">
+								<h3>{{data.parks[0].name}}</h3>
+								<p class='phone-number'>{{data.parks[0].display_phone}}</p>
+								<p class='streets'>{{data.parks[0].location.cross_streets}}</p>
+								<p>{{data.parks[0].snippet_text}}</p>
+								<ul class="actions">
+									<li><a href="{{data.parks[0].url}}" target="_blank" class="button alt">Learn More</a></li>
+								</ul>
+							</section>
+							<section>
+								<img ng-src='{{data.parks[1].image_url}}' style="border-radius: 50%;">
+								<h3>{{data.parks[1].name}}</h3>
+								<p class='phone-number'>{{data.parks[1].display_phone}}</p>
+								<p class='streets'>{{data.parks[1].location.cross_streets}}</p>
+								<p>{{data.parks[1].snippet_text}}</p>
+								<ul class="actions">
+									<li><a href="{{data.parks[1].url}}" target="_blank" class="button alt">Learn More</a></li>
+								</ul>
+							</section>
+						</div>
+					</section>
+
+					<section ng-show="tourists && data.tourists">
+						<h5>Tourist Attractions</h5>
+						<div class="row">
+							<div class="6u 12u(narrower)">
+
+								<section class="box special">
+									<img ng-src='{{data.tourists[0].image_url}}'>
+									<h3>{{data.tourists[0].name}}</h3>
+									<p class='phone-number'>{{data.tourists[0].display_phone}}</p>
+									<p class='streets'>{{data.tourists[0].location.cross_streets}}</p>
+									<p>{{data.tourists[0].snippet_text}}</p>
+									<ul class="actions">
+										<li><a href="{{data.tourists[0].url}}" target="_blank" class="button alt">Learn More</a></li>
+									</ul>
+								</section>
+
+							</div>
+							<div class="6u 12u(narrower)">
+
+								<section class="box special">
+									<img ng-src='{{data.tourists[1].image_url}}'>
+									<h3>{{data.tourists[1].name}}</h3>
+									<p class='phone-number'>{{data.tourists[1].display_phone}}</p>
+									<p class='streets'>{{data.tourists[1].location.cross_streets}}</p>
+									<p>{{data.tourists[1].snippet_text}}</p>
+									<ul class="actions">
+										<li><a href="{{data.tourists[1].url}}" target="_blank" class="button alt">Learn More</a></li>
+									</ul>
+								</section>
+
+							</div>
+
+							<div class="6u 12u(narrower)">
+
+								<section class="box special">
+									<img ng-src='{{data.tourists[2].image_url}}'>
+									<h3>{{data.tourists[2].name}}</h3>
+									<p class='phone-number'>{{data.tourists[2].display_phone}}</p>
+									<p class='streets'>{{data.tourists[2].location.cross_streets}}</p>
+									<p>{{data.tourists[2].snippet_text}}</p>
+									<ul class="actions">
+										<li><a href="{{data.tourists[2].url}}" target="_blank" class="button alt">Learn More</a></li>
+									</ul>
+								</section>
+
+							</div>
+							<div class="6u 12u(narrower)">
+
+								<section class="box special">
+									<img ng-src='{{data.tourists[3].image_url}}'>
+									<h3>{{data.tourists[3].name}}</h3>
+									<p class='phone-number'>{{data.tourists[3].display_phone}}</p>
+									<p class='streets'>{{data.tourists[3].location.cross_streets}}</p>
+									<p>{{data.tourists[3].snippet_text}}</p>
+									<ul class="actions">
+										<li><a href="{{data.tourists[3].url}}" target="_blank" class="button alt">Learn More</a></li>
+									</ul>
+								</section>
+							</div>
+						</div>
+					</section>
+
+					<section class="box special features" ng-show="yoga && data.yoga">
+						<h5>Yoga</h5>
+						<div class="features-row">
+							<section>
+								<img ng-src='{{data.yoga[0].image_url}}' style="border-radius: 50%;">
+								<h3>{{data.yoga[0].name}}</h3>
+								<p class='phone-number'>{{data.yoga[0].display_phone}}</p>
+								<p class='streets'>{{data.yoga[0].location.cross_streets}}</p>
+								<p>{{data.yoga[0].snippet_text}}</p>
+								<ul class="actions">
+									<li><a href="{{data.yoga[0].url}}" target="_blank" class="button alt">Learn More</a></li>
+								</ul>
+							</section>
+							<section>
+								<img ng-src='{{data.yoga[1].image_url}}' style="border-radius: 50%;">
+								<h3>{{data.yoga[1].name}}</h3>
+								<p class='phone-number'>{{data.yoga[1].display_phone}}</p>
+								<p class='streets'>{{data.yoga[1].location.cross_streets}}</p>
+								<p>{{data.yoga[1].snippet_text}}</p>
+								<ul class="actions">
+									<li><a href="{{data.yoga[1].url}}" target="_blank" class="button alt">Learn More</a></li>
+								</ul>
+							</section>
+						</div>
+					</section>
+
+
+
 				</section>
 
 
