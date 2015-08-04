@@ -32,17 +32,17 @@ app.get('/location/:location', function (req, res) {
     mapRequests("restaurants",data.businesses);
   });
 
-  yelp.search({term: "club", location: location, sort:2, limit:2,radius_filter:10000}, function(error, data) {
+  yelp.search({term: "dance clubs", location: location, sort:2, limit:2,radius_filter:10000}, function(error, data) {
     if(error) res.end("Error");
     mapRequests("club",data.businesses);
   });
 
-  yelp.search({term: "store", location: location, sort:2, limit:2,radius_filter:10000}, function(error, data) {
+  yelp.search({term: "stores", location: location, sort:2, limit:2,radius_filter:10000}, function(error, data) {
     if(error) res.end("Error");
     mapRequests("store",data.businesses);
   });
 
-  yelp.search({term: "bar", location: location, sort:2, limit:4,radius_filter:10000}, function(error, data) {
+  yelp.search({term: "pubs", location: location, sort:2, limit:4,radius_filter:10000}, function(error, data) {
     if(error) res.end("Error");
     mapRequests("bar",data.businesses);
   });

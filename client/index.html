@@ -9,7 +9,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
 		
 	</head>
-	<body class="landing">
+	<body class="landing" ng-controller="InputController">
 		<div id="page-wrapper">
 
 			<!-- Header -->
@@ -18,18 +18,17 @@
 					<nav id="nav">
 						<ul>
 							<li><a href="index.html">Home</a></li>
-							<li><a href="#" class="button">Sign Up</a></li>
+							<li><a href="#" class="button">Sign In</a></li>
 						</ul>
 					</nav>
 				</header>
 
 			<!-- Banner -->
-				<section id="banner" ng-controller="InputController">
+				<section id="banner">
 					<h2 id="main-title">Local's Choice</h2>
 					<p id="main-city">Enter Destination</p>
 					<form ng-submit="sendLocation(location)">
 						<input type='text' ng-model="location" autofocus>
-						<button>Submit</button>
 					</form>
 				</section>
 
@@ -40,141 +39,184 @@
 						<header class="major">
 							<h2>Introducing the top choices
 							<br />
-							for doing stuff in your city</h2>
+							for doing stuff in {{city}}</h2>
 							<p>Traveler's Guide</p>
 						</header>
 						<span class="image featured" id="hero"></span>
 					</section>
 
-					<section class="box special features" id="restaurants">
+					<section class="box special features" id="restaurants" ng-show="data.restaurants">
+						<h5>Restaurants</h5>
 						<div class="features-row">
 							<section>
-								<img src ='images/pic01.jpg' style="width: 100px; height: 100px; border-radius: 50%; margin-bottom: 40px;">
-								<h3>Restaraunt 01</h3>
-								<p>Integer volutpat ante et accumsan commophasellus sed aliquam feugiat lorem aliquet ut enim rutrum phasellus iaculis accumsan dolore magna aliquam veroeros.</p>
+								<img ng-src='{{data.restaurants[0].image_url}}' style="border-radius: 50%;">
+								<h3>{{data.restaurants[0].name}}</h3>
+								<p class='phone-number'>{{data.restaurants[0].display_phone}}</p>
+								<p class='streets'>{{data.restaurants[0].location.cross_streets}}</p>
+								<p>{{data.restaurants[0].snippet_text}}</p>
+								<ul class="actions">
+									<li><a href="{{data.restaurants[0].url}}" target="_blank" class="button alt">Learn More</a></li>
+								</ul>
 							</section>
 							<section>
-								<img src ='images/pic01.jpg' style="width: 100px; height: 100px; border-radius: 50%; margin-bottom: 40px;">
-								<h3>Restaraunt 02</h3>
-								<p>Integer volutpat ante et accumsan commophasellus sed aliquam feugiat lorem aliquet ut enim rutrum phasellus iaculis accumsan dolore magna aliquam veroeros.</p>
+								<img ng-src='{{data.restaurants[1].image_url}}' style="border-radius: 50%;">
+								<h3>{{data.restaurants[1].name}}</h3>
+								<p class='phone-number'>{{data.restaurants[1].display_phone}}</p>
+								<p class='streets'>{{data.restaurants[1].location.cross_streets}}</p>
+								<p>{{data.restaurants[1].snippet_text}}</p>
+								<ul class="actions">
+									<li><a href="{{data.restaurants[1].url}}" target="_blank" class="button alt">Learn More</a></li>
+								</ul>
 							</section>
 						</div>
-						<div class="features-row">
+						<div class="features-row" ng-show="data.restaurants">
 							<section>
-								<img src ='images/pic01.jpg' style="width: 100px; height: 100px; border-radius: 50%; margin-bottom: 40px;">
-								<h3>Restaraunt 03</h3>
-								<p>Integer volutpat ante et accumsan commophasellus sed aliquam feugiat lorem aliquet ut enim rutrum phasellus iaculis accumsan dolore magna aliquam veroeros.</p>
+								<img ng-src='{{data.restaurants[2].image_url}}' style="border-radius: 50%;">
+								<h3>{{data.restaurants[2].name}}</h3>
+								<p class='phone-number'>{{data.restaurants[2].display_phone}}</p>
+								<p class='streets'>{{data.restaurants[2].location.cross_streets}}</p>
+								<p>{{data.restaurants[2].snippet_text}}</p>
+								<ul class="actions">
+									<li><a href="{{data.restaurants[2].url}}" target="_blank" class="button alt">Learn More</a></li>
+								</ul>
 							</section>
 							<section>
-								<img src ='images/pic01.jpg' style="width: 100px; height: 100px; border-radius: 50%; margin-bottom: 40px;">
-								<h3>Restaraunt 04</h3>
-								<p>Integer volutpat ante et accumsan commophasellus sed aliquam feugiat lorem aliquet ut enim rutrum phasellus iaculis accumsan dolore magna aliquam veroeros.</p>
+								<img ng-src='{{data.restaurants[3].image_url}}' style="border-radius: 50%;">
+								<h3>{{data.restaurants[3].name}}</h3>
+								<p class='phone-number'>{{data.restaurants[3].display_phone}}</p>
+								<p class='streets'>{{data.restaurants[3].location.cross_streets}}</p>
+								<p>{{data.restaurants[3].snippet_text}}</p>
+								<ul class="actions">
+									<li><a href="{{data.restaurants[3].url}}" target="_blank" class="button alt">Learn More</a></li>
+								</ul>
 							</section>
 						</div>
 					</section>
 
-					<div class="row">
-						<div class="6u 12u(narrower)">
+					<section ng-show="data.club">
+						<h5>Clubs</h5>
+						<div class="row">
+							<div class="6u 12u(narrower)">
 
-							<section class="box special">
-								<span class="image featured"><img src="images/pic02.jpg" alt="" /></span>
-								<h3>Club 01</h3>
-								<p>Integer volutpat ante et accumsan commophasellus sed aliquam feugiat lorem aliquet ut enim rutrum phasellus iaculis accumsan dolore magna aliquam veroeros.</p>
-								<ul class="actions">
-									<li><a href="#" class="button alt">Learn More</a></li>
-								</ul>
-							</section>
+								<section class="box special">
+									<img ng-src='{{data.club[0].image_url}}'>
+									<h3>{{data.club[0].name}}</h3>
+									<p class='phone-number'>{{data.club[0].display_phone}}</p>
+									<p class='streets'>{{data.clubs[0].location.cross_streets}}</p>
+									<p>{{data.club[0].snippet_text}}</p>
+									<ul class="actions">
+										<li><a href="{{data.club[0].url}}" target="_blank" class="button alt">Learn More</a></li>
+									</ul>
+								</section>
 
+							</div>
+							<div class="6u 12u(narrower)">
+
+								<section class="box special">
+									<img ng-src='{{data.club[1].image_url}}'>
+									<h3>{{data.club[1].name}}</h3>
+									<p class='phone-number'>{{data.club[1].display_phone}}</p>
+									<p class='streets'>{{data.clubs[1].location.cross_streets}}</p>
+									<p>{{data.club[1].snippet_text}}</p>
+									<ul class="actions">
+										<li><a href="{{data.club[1].url}}" target="_blank" class="button alt">Learn More</a></li>
+									</ul>
+								</section>
+
+							</div>
 						</div>
-						<div class="6u 12u(narrower)">
-
-							<section class="box special">
-								<span class="image featured"><img src="images/pic03.jpg" alt="" /></span>
-								<h3>Club 02</h3>
-								<p>Integer volutpat ante et accumsan commophasellus sed aliquam feugiat lorem aliquet ut enim rutrum phasellus iaculis accumsan dolore magna aliquam veroeros.</p>
-								<ul class="actions">
-									<li><a href="#" class="button alt">Learn More</a></li>
-								</ul>
-							</section>
-
-						</div>
-					</div>
+					</section>
 
 
 
 
-
-					<section class="box special features">
+					<section class="box special features" ng-show="data.store">
+						<h5>Stores</h5>
 						<div class="features-row">
 							<section>
-								<img src ='images/pic01.jpg' style="width: 100px; height: 100px; border-radius: 50%; margin-bottom: 40px;">
-								<h3>Store 01</h3>
-								<p>Integer volutpat ante et accumsan commophasellus sed aliquam feugiat lorem aliquet ut enim rutrum phasellus iaculis accumsan dolore magna aliquam veroeros.</p>
+								<img ng-src='{{data.store[0].image_url}}' style="border-radius: 50%;">
+								<h3>{{data.store[0].name}}</h3>
+								<p class='phone-number'>{{data.store[0].display_phone}}</p>
+								<p class='streets'>{{data.store[0].location.cross_streets}}</p>
+								<p>{{data.store[0].snippet_text}}</p>
+								<ul class="actions">
+									<li><a href="{{data.store[0].url}}" target="_blank" class="button alt">Learn More</a></li>
+								</ul>
 							</section>
 							<section>
-								<img src ='images/pic01.jpg' style="width: 100px; height: 100px; border-radius: 50%; margin-bottom: 40px;">
-								<h3>Store 02</h3>
-								<p>Integer volutpat ante et accumsan commophasellus sed aliquam feugiat lorem aliquet ut enim rutrum phasellus iaculis accumsan dolore magna aliquam veroeros.</p>
+								<img ng-src='{{data.store[1].image_url}}' style="border-radius: 50%;">
+								<h3>{{data.store[1].name}}</h3>
+								<p class='phone-number'>{{data.store[1].display_phone}}</p>
+								<p class='streets'>{{data.store[1].location.cross_streets}}</p>
+								<p>{{data.store[1].snippet_text}}</p>
+								<ul class="actions">
+									<li><a href="{{data.store[1].url}}" target="_blank" class="button alt">Learn More</a></li>
+								</ul>
 							</section>
 						</div>
 					</section>
 
-					<div class="row">
-						<div class="6u 12u(narrower)">
+					<section ng-show="data.bar">
+						<h5>Bars</h5>
+						<div class="row">
+							<div class="6u 12u(narrower)">
 
-							<section class="box special">
-								<span class="image featured"><img src="images/pic02.jpg" alt="" /></span>
-								<h3>Bar 01</h3>
-								<p>Integer volutpat ante et accumsan commophasellus sed aliquam feugiat lorem aliquet ut enim rutrum phasellus iaculis accumsan dolore magna aliquam veroeros.</p>
-								<ul class="actions">
-									<li><a href="#" class="button alt">Learn More</a></li>
-								</ul>
-							</section>
+								<section class="box special">
+									<img ng-src='{{data.bar[0].image_url}}'>
+									<h3>{{data.bar[0].name}}</h3>
+									<p class='phone-number'>{{data.bar[0].display_phone}}</p>
+									<p class='streets'>{{data.bar[0].location.cross_streets}}</p>
+									<p>{{data.bar[0].snippet_text}}</p>
+									<ul class="actions">
+										<li><a href="{{data.bar[0].url}}" target="_blank" class="button alt">Learn More</a></li>
+									</ul>
+								</section>
 
+							</div>
+							<div class="6u 12u(narrower)">
+
+								<section class="box special">
+									<img ng-src='{{data.bar[1].image_url}}'>
+									<h3>{{data.bar[1].name}}</h3>
+									<p class='phone-number'>{{data.bar[1].display_phone}}</p>
+									<p class='streets'>{{data.bar[1].location.cross_streets}}</p>
+									<p>{{data.bar[1].snippet_text}}</p>
+									<ul class="actions">
+										<li><a href="{{data.bar[1].url}}" target="_blank" class="button alt">Learn More</a></li>
+									</ul>
+								</section>
+
+							</div>
+
+							<div class="6u 12u(narrower)">
+
+								<section class="box special">
+									<img ng-src='{{data.bar[2].image_url}}'>
+									<h3>{{data.bar[2].name}}</h3>
+									<p class='phone-number'>{{data.bar[2].display_phone}}</p>
+									<p class='streets'>{{data.bar[2].location.cross_streets}}</p>
+									<p>{{data.bar[2].snippet_text}}</p>
+									<ul class="actions">
+										<li><a href="{{data.bar[2].url}}" target="_blank" class="button alt">Learn More</a></li>
+									</ul>
+								</section>
+
+							</div>
+							<div class="6u 12u(narrower)">
+
+								<section class="box special">
+									<img ng-src='{{data.bar[3].image_url}}'>
+									<h3>{{data.bar[3].name}}</h3>
+									<p class='phone-number'>{{data.bar[3].display_phone}}</p>
+									<p class='streets'>{{data.bar[3].location.cross_streets}}</p>
+									<p>{{data.bar[3].snippet_text}}</p>
+									<ul class="actions">
+										<li><a href="{{data.bar[3].url}}" target="_blank" class="button alt">Learn More</a></li>
+									</ul>
+								</section>
+							</div>
 						</div>
-						<div class="6u 12u(narrower)">
-
-							<section class="box special">
-								<span class="image featured"><img src="images/pic03.jpg" alt="" /></span>
-								<h3>Bar 02</h3>
-								<p>Integer volutpat ante et accumsan commophasellus sed aliquam feugiat lorem aliquet ut enim rutrum phasellus iaculis accumsan dolore magna aliquam veroeros.</p>
-								<ul class="actions">
-									<li><a href="#" class="button alt">Learn More</a></li>
-								</ul>
-							</section>
-
-						</div>
-
-						<div class="6u 12u(narrower)">
-
-							<section class="box special">
-								<span class="image featured"><img src="images/pic02.jpg" alt="" /></span>
-								<h3>Bar 03</h3>
-								<p>Integer volutpat ante et accumsan commophasellus sed aliquam feugiat lorem aliquet ut enim rutrum phasellus iaculis accumsan dolore magna aliquam veroeros.</p>
-								<ul class="actions">
-									<li><a href="#" class="button alt">Learn More</a></li>
-								</ul>
-							</section>
-
-						</div>
-						<div class="6u 12u(narrower)">
-
-							<section class="box special">
-								<span class="image featured"><img src="images/pic03.jpg" alt="" /></span>
-								<h3>Bar 04</h3>
-								<p>Integer volutpat ante et accumsan commophasellus sed aliquam feugiat lorem aliquet ut enim rutrum phasellus iaculis accumsan dolore magna aliquam veroeros.</p>
-								<ul class="actions">
-									<li><a href="#" class="button alt">Learn More</a></li>
-								</ul>
-							</section>
-
-						</div>
-					</div>
-
-
-
-
-
+					</section>
 				</section>
 
 
@@ -182,7 +224,7 @@
 			<!-- CTA -->
 				<section id="cta">
 
-					<h2 class="colored-selection">Sign up for more access</h2>
+					<h2 class="colored-selection">Sign in for more access</h2>
 					<p class="colored-selection">Receive weekly newsletters of the most searched city</p>
 
 					<form>
