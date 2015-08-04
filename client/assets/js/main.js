@@ -2,6 +2,7 @@ var app = angular.module('localsOnly', []);
 
 app.controller('InputController', ['$scope', '$http', function($scope, $http) {
 	$scope.data = {};
+	$scope.planner = {};
 	$scope.city = 'in your city';
 	$scope.restaurants = true;
 	$scope.clubs = true;
@@ -21,4 +22,6 @@ app.controller('InputController', ['$scope', '$http', function($scope, $http) {
 		})
 		$scope.location = '';
 	}
+
 }]);
+

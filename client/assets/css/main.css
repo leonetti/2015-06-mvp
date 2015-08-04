@@ -1810,12 +1810,16 @@
 	}
 
 	body, input, select, textarea {
-		color: #777;
+		color: #e89980;
 		font-family: "Source Sans Pro", sans-serif;
 		font-size: 16pt;
 		font-weight: 300;
 		line-height: 1.65em;
 		letter-spacing: -0.015em;
+	}
+
+	p {
+		color: #777;
 	}
 
 	a {
@@ -3020,6 +3024,7 @@
 			width: 300px;
 			margin: 0 auto;
 			letter-spacing: 1px;
+			color: #fff;
 		}
 
 		h2#main-title {
@@ -3753,7 +3758,7 @@
 
 
 	#inputs {
-		max-width: 400px;
+		max-width: 450px;
 		border: 2px solid white;
 		height: 100px;
 		width: 100%;
@@ -3782,8 +3787,18 @@
 		border: none;
 		margin: 0;
 		margin-right: 10px;
+		color: #fff;
 	}
 
 	#inputs p.yoga {
 		margin-right: 0;
+	}
+
+	.phone-number {
+		color: #e89980;
+		margin-bottom: 30px;
+	}
+
+	.actions li a {
+		color: #e89980;
 	}
