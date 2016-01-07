@@ -32,12 +32,12 @@ app.get('/location/:location', function (req, res) {
     mapRequests("restaurants", data.businesses);
   });
 
-  yelp.search({term: "dance clubs", location: location, sort:2, limit:2,radius_filter:10000}, function(error, data) {
+  yelp.search({term: "dance clubs", location: location, sort:2, limit:4,radius_filter:10000}, function(error, data) {
     if(error) res.end("Error");
     mapRequests("club", data.businesses);
   });
 
-  yelp.search({term: "stores", location: location, sort:2, limit:2,radius_filter:10000}, function(error, data) {
+  yelp.search({term: "stores", location: location, sort:2, limit:4,radius_filter:10000}, function(error, data) {
     if(error) res.end("Error");
     mapRequests("store", data.businesses);
   });
@@ -47,7 +47,7 @@ app.get('/location/:location', function (req, res) {
     mapRequests("bar", data.businesses);
   });
 
-  yelp.search({term: "parks", location: location, sort:2, limit:2,radius_filter:10000}, function(error, data) {
+  yelp.search({term: "parks", location: location, sort:2, limit:4,radius_filter:10000}, function(error, data) {
     if(error) res.end("Error");
     mapRequests("parks", data.businesses);
   });
@@ -57,7 +57,7 @@ app.get('/location/:location', function (req, res) {
     mapRequests("tourists", data.businesses);
   });
 
-  yelp.search({term: "yoga", location: location, sort:2, limit:2,radius_filter:10000}, function(error, data) {
+  yelp.search({term: "yoga", location: location, sort:2, limit:4,radius_filter:10000}, function(error, data) {
     if(error) res.end("Error");
     mapRequests("yoga", data.businesses);
   });

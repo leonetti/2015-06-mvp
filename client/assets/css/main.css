@@ -261,7 +261,6 @@
 		-moz-box-sizing: border-box;
 		-webkit-box-sizing: border-box;
 		box-sizing: border-box;
-		display: block;
 	}
 
 	.row > * {
@@ -3092,7 +3091,7 @@
 		font-weight: 500;
 		letter-spacing: 1px;
 		border-radius: 10px;
-		border: 2px solid #E8C480;
+		border: 2px solid #e89980;
 	}
 
 	#banner input:focus {
@@ -3177,6 +3176,10 @@
 
 		#cta input::-moz-selection {
 			background: rgba(236,162,154, 1);
+		}
+
+		.colored-selection {
+			color: #fff;
 		}
 
 		.colored-selection::selection {
@@ -3802,3 +3805,37 @@
 	.actions li a {
 		color: #e89980;
 	}
+
+	section.box p {
+		margin-bottom: 0;
+	}
+
+	.rating {
+		margin-bottom: 30px;
+	}
+
+	.review-count {
+		color: #e89980;
+	}
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

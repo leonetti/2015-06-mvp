@@ -64,279 +64,217 @@
 
 					<section class="box special features" id="restaurants" ng-show="restaurants && data.restaurants.length>0">
 						<h5>Restaurants</h5>
-						<div class="features-row">
-							<section>
-								<img ng-src='{{data.restaurants[0].image_url}}' style="border-radius: 50%;">
-								<h3>{{data.restaurants[0].name}}</h3>
-								<p class='phone-number'>{{data.restaurants[0].display_phone}}</p>
-								<p>{{data.restaurants[0].snippet_text}}</p>
+						<div class="features-row" >
+							<section ng-repeat='restaurant in data.restaurants' ng-show='$index<2'>
+								<img ng-src='{{restaurant.image_url}}' style="border-radius: 50%;">
+								<h3>{{restaurant.name}}</h3>
+								<p class='phone-number'>{{restaurant.display_phone}}</p>
+								<p>{{restaurant.snippet_text}}</p>
+								<p class='review-count'>{{restaurant.review_count}} Reviews</p>
+								<img class='rating' src='{{restaurant.rating_img_url_small}}'>
 								<ul class="actions">
-									<li><a href="{{data.restaurants[0].url}}" target="_blank" class="button alt">Learn More</a></li>
-								</ul>
-							</section>
-							<section>
-								<img ng-src='{{data.restaurants[1].image_url}}' style="border-radius: 50%;">
-								<h3>{{data.restaurants[1].name}}</h3>
-								<p class='phone-number'>{{data.restaurants[1].display_phone}}</p>
-								<p>{{data.restaurants[1].snippet_text}}</p>
-								<ul class="actions">
-									<li><a href="{{data.restaurants[1].url}}" target="_blank" class="button alt">Learn More</a></li>
+									<li><a href="{{restaurant.url}}" target="_blank" class="button alt">Learn More</a></li>
 								</ul>
 							</section>
 						</div>
-						<div class="features-row">
-							<section>
-								<img ng-src='{{data.restaurants[2].image_url}}' style="border-radius: 50%;">
-								<h3>{{data.restaurants[2].name}}</h3>
-								<p class='phone-number'>{{data.restaurants[2].display_phone}}</p>
-								<p>{{data.restaurants[2].snippet_text}}</p>
+						<div class="features-row" >
+							<section ng-repeat='restaurant in data.restaurants' ng-show='$index>1'>
+								<img ng-src='{{restaurant.image_url}}' style="border-radius: 50%;">
+								<h3>{{restaurant.name}}</h3>
+								<p class='phone-number'>{{restaurant.display_phone}}</p>
+								<p>{{restaurant.snippet_text}}</p>
+								<p class='review-count'>{{restaurant.review_count}} Reviews</p>
+								<img class='rating' src='{{restaurant.rating_img_url_small}}'>
 								<ul class="actions">
-									<li><a href="{{data.restaurants[2].url}}" target="_blank" class="button alt">Learn More</a></li>
-								</ul>
-							</section>
-							<section>
-								<img ng-src='{{data.restaurants[3].image_url}}' style="border-radius: 50%;">
-								<h3>{{data.restaurants[3].name}}</h3>
-								<p class='phone-number'>{{data.restaurants[3].display_phone}}</p>
-								<p>{{data.restaurants[3].snippet_text}}</p>
-								<ul class="actions">
-									<li><a href="{{data.restaurants[3].url}}" target="_blank" class="button alt">Learn More</a></li>
+									<li><a href="{{restaurant.url}}" target="_blank" class="button alt">Learn More</a></li>
 								</ul>
 							</section>
 						</div>
 					</section>
 
-					<section ng-show="clubs && data.club.length>0">
-						<h5>Clubs</h5>
-						<div class="row">
-							<div class="6u 12u(narrower)">
-
-								<section class="box special">
-									<img ng-src='{{data.club[0].image_url}}'>
-									<h3>{{data.club[0].name}}</h3>
-									<p class='phone-number'>{{data.club[0].display_phone}}</p>
-									<p>{{data.club[0].snippet_text}}</p>
-									<ul class="actions">
-										<li><a href="{{data.club[0].url}}" target="_blank" class="button alt">Learn More</a></li>
-									</ul>
-								</section>
-
-							</div>
-							<div class="6u 12u(narrower)">
-
-								<section class="box special">
-									<img ng-src='{{data.club[1].image_url}}'>
-									<h3>{{data.club[1].name}}</h3>
-									<p class='phone-number'>{{data.club[1].display_phone}}</p>
-									<p>{{data.club[1].snippet_text}}</p>
-									<ul class="actions">
-										<li><a href="{{data.club[1].url}}" target="_blank" class="button alt">Learn More</a></li>
-									</ul>
-								</section>
-
-							</div>
-						</div>
-					</section>
-
-
-
-
-					<section class="box special features" ng-show="stores && data.store.length>0">
-						<h5>Stores</h5>
-						<div class="features-row">
-							<section>
-								<img ng-src='{{data.store[0].image_url}}' style="border-radius: 50%;">
-								<h3>{{data.store[0].name}}</h3>
-								<p class='phone-number'>{{data.store[0].display_phone}}</p>
-								<p>{{data.store[0].snippet_text}}</p>
-								<ul class="actions">
-									<li><a href="{{data.store[0].url}}" target="_blank" class="button alt">Learn More</a></li>
-								</ul>
-							</section>
-							<section>
-								<img ng-src='{{data.store[1].image_url}}' style="border-radius: 50%;">
-								<h3>{{data.store[1].name}}</h3>
-								<p class='phone-number'>{{data.store[1].display_phone}}</p>
-								<p>{{data.store[1].snippet_text}}</p>
-								<ul class="actions">
-									<li><a href="{{data.store[1].url}}" target="_blank" class="button alt">Learn More</a></li>
-								</ul>
-							</section>
-						</div>
-					</section>
-
-					<section ng-show="bars && data.bar.length>0">
+					<section class="box special features" id="bars" ng-show="bars && data.bar.length>0">
 						<h5>Bars</h5>
-						<div class="row">
-							<div class="6u 12u(narrower)">
-
-								<section class="box special">
-									<img ng-src='{{data.bar[0].image_url}}'>
-									<h3>{{data.bar[0].name}}</h3>
-									<p class='phone-number'>{{data.bar[0].display_phone}}</p>
-									<p>{{data.bar[0].snippet_text}}</p>
-									<ul class="actions">
-										<li><a href="{{data.bar[0].url}}" target="_blank" class="button alt">Learn More</a></li>
-									</ul>
-								</section>
-
-							</div>
-							<div class="6u 12u(narrower)">
-
-								<section class="box special">
-									<img ng-src='{{data.bar[1].image_url}}'>
-									<h3>{{data.bar[1].name}}</h3>
-									<p class='phone-number'>{{data.bar[1].display_phone}}</p>
-									<p>{{data.bar[1].snippet_text}}</p>
-									<ul class="actions">
-										<li><a href="{{data.bar[1].url}}" target="_blank" class="button alt">Learn More</a></li>
-									</ul>
-								</section>
-
-							</div>
-
-						<div class="row">
-
-							<div class="6u 12u(narrower)">
-
-								<section class="box special">
-									<img ng-src='{{data.bar[2].image_url}}'>
-									<h3>{{data.bar[2].name}}</h3>
-									<p class='phone-number'>{{data.bar[2].display_phone}}</p>
-									<p>{{data.bar[2].snippet_text}}</p>
-									<ul class="actions">
-										<li><a href="{{data.bar[2].url}}" target="_blank" class="button alt">Learn More</a></li>
-									</ul>
-								</section>
-
-							</div>
-							<div class="6u 12u(narrower)">
-
-								<section class="box special">
-									<img ng-src='{{data.bar[3].image_url}}'>
-									<h3>{{data.bar[3].name}}</h3>
-									<p class='phone-number'>{{data.bar[3].display_phone}}</p>
-									<p>{{data.bar[3].snippet_text}}</p>
-									<ul class="actions">
-										<li><a href="{{data.bar[3].url}}" target="_blank" class="button alt">Learn More</a></li>
-									</ul>
-								</section>
-							</div>
+						<div class="features-row" >
+							<section ng-repeat='bar in data.bar' ng-show='$index<2'>
+								<img ng-src='{{bar.image_url}}'>
+								<h3>{{bar.name}}</h3>
+								<p class='phone-number'>{{bar.display_phone}}</p>
+								<p>{{bar.snippet_text}}</p>
+								<p class='review-count'>{{bar.review_count}} Reviews</p>
+								<img class='rating' src='{{bar.rating_img_url_small}}'>
+								<ul class="actions">
+									<li><a href="{{bar.url}}" target="_blank" class="button alt">Learn More</a></li>
+								</ul>
+							</section>
 						</div>
+						<div class="features-row" >
+							<section ng-repeat='bar in data.bar' ng-show='$index>1'>
+								<img ng-src='{{bar.image_url}}'>
+								<h3>{{bar.name}}</h3>
+								<p class='phone-number'>{{bar.display_phone}}</p>
+								<p>{{bar.snippet_text}}</p>
+								<p class='review-count'>{{bar.review_count}} Reviews</p>
+								<img class='rating' src='{{bar.rating_img_url_small}}'>
+								<ul class="actions">
+									<li><a href="{{bar.url}}" target="_blank" class="button alt">Learn More</a></li>
+								</ul>
+							</section>
 						</div>
 					</section>
 
-					<section class="box special features" ng-show="parks && data.parks.length>0">
+
+
+					<section class="box special features" id="clubs" ng-show="clubs && data.club.length>0">
+						<h5>Clubs</h5>
+						<div class="features-row" >
+							<section ng-repeat='club in data.club' ng-show='$index<2'>
+								<img ng-src='{{club.image_url}}' style="border-radius: 50%;">
+								<h3>{{club.name}}</h3>
+								<p class='phone-number'>{{club.display_phone}}</p>
+								<p>{{club.snippet_text}}</p>
+								<p class='review-count'>{{club.review_count}} Reviews</p>
+								<img class='rating' src='{{club.rating_img_url_small}}'>
+								<ul class="actions">
+									<li><a href="{{club.url}}" target="_blank" class="button alt">Learn More</a></li>
+								</ul>
+							</section>
+						</div>
+						<div class="features-row" >
+							<section ng-repeat='club in data.club' ng-show='$index>1'>
+								<img ng-src='{{club.image_url}}' style="border-radius: 50%;">
+								<h3>{{club.name}}</h3>
+								<p class='phone-number'>{{club.display_phone}}</p>
+								<p>{{club.snippet_text}}</p>
+								<p class='review-count'>{{club.review_count}} Reviews</p>
+								<img class='rating' src='{{club.rating_img_url_small}}'>
+								<ul class="actions">
+									<li><a href="{{club.url}}" target="_blank" class="button alt">Learn More</a></li>
+								</ul>
+							</section>
+						</div>
+					</section>
+
+					<section class="box special features" id="stores" ng-show="stores && data.store.length>0">
+						<h5>Stores</h5>
+						<div class="features-row" >
+							<section ng-repeat='store in data.store' ng-show='$index<2'>
+								<img ng-src='{{store.image_url}}'>
+								<h3>{{store.name}}</h3>
+								<p class='phone-number'>{{store.display_phone}}</p>
+								<p>{{store.snippet_text}}</p>
+								<p class='review-count'>{{store.review_count}} Reviews</p>
+								<img class='rating' src='{{store.rating_img_url_small}}'>
+								<ul class="actions">
+									<li><a href="{{store.url}}" target="_blank" class="button alt">Learn More</a></li>
+								</ul>
+							</section>
+						</div>
+						<div class="features-row" >
+							<section ng-repeat='store in data.store' ng-show='$index>1'>
+								<img ng-src='{{store.image_url}}'>
+								<h3>{{store.name}}</h3>
+								<p class='phone-number'>{{store.display_phone}}</p>
+								<p>{{store.snippet_text}}</p>
+								<p class='review-count'>{{store.review_count}} Reviews</p>
+								<img class='rating' src='{{store.rating_img_url_small}}'>
+								<ul class="actions">
+									<li><a href="{{store.url}}" target="_blank" class="button alt">Learn More</a></li>
+								</ul>
+							</section>
+						</div>
+					</section>
+
+					<section class="box special features" id="parks" ng-show="parks && data.parks.length>0">
 						<h5>Parks</h5>
-						<div class="features-row">
-							<section>
-								<img ng-src='{{data.parks[0].image_url}}' style="border-radius: 50%;">
-								<h3>{{data.parks[0].name}}</h3>
-								<p class='phone-number'>{{data.parks[0].display_phone}}</p>
-								<p>{{data.parks[0].snippet_text}}</p>
+						<div class="features-row" >
+							<section ng-repeat='parks in data.parks' ng-show='$index<2'>
+								<img ng-src='{{parks.image_url}}' style="border-radius: 50%;">
+								<h3>{{parks.name}}</h3>
+								<p class='phone-number'>{{parks.display_phone}}</p>
+								<p>{{parks.snippet_text}}</p>
+								<p class='review-count'>{{parks.review_count}} Reviews</p>
+								<img class='rating' src='{{parks.rating_img_url_small}}'>
 								<ul class="actions">
-									<li><a href="{{data.parks[0].url}}" target="_blank" class="button alt">Learn More</a></li>
+									<li><a href="{{parks.url}}" target="_blank" class="button alt">Learn More</a></li>
 								</ul>
 							</section>
-							<section>
-								<img ng-src='{{data.parks[1].image_url}}' style="border-radius: 50%;">
-								<h3>{{data.parks[1].name}}</h3>
-								<p class='phone-number'>{{data.parks[1].display_phone}}</p>
-								<p>{{data.parks[1].snippet_text}}</p>
+						</div>
+						<div class="features-row" >
+							<section ng-repeat='parks in data.parks' ng-show='$index>1'>
+								<img ng-src='{{parks.image_url}}' style="border-radius: 50%;">
+								<h3>{{parks.name}}</h3>
+								<p class='phone-number'>{{parks.display_phone}}</p>
+								<p>{{parks.snippet_text}}</p>
+								<p class='review-count'>{{parks.review_count}} Reviews</p>
+								<img class='rating' src='{{parks.rating_img_url_small}}'>
 								<ul class="actions">
-									<li><a href="{{data.parks[1].url}}" target="_blank" class="button alt">Learn More</a></li>
+									<li><a href="{{parks.url}}" target="_blank" class="button alt">Learn More</a></li>
 								</ul>
 							</section>
 						</div>
 					</section>
 
-					<section ng-show="tourists && data.tourists.length>0">
+					<section class="box special features" id="tourists" ng-show="tourists && data.tourists.length>0">
 						<h5>Tourist Attractions</h5>
-						<div class="row">
-							<div class="6u 12u(narrower)">
-
-								<section class="box special">
-									<img ng-src='{{data.tourists[0].image_url}}'>
-									<h3>{{data.tourists[0].name}}</h3>
-									<p class='phone-number'>{{data.tourists[0].display_phone}}</p>
-									<p>{{data.tourists[0].snippet_text}}</p>
-									<ul class="actions">
-										<li><a href="{{data.tourists[0].url}}" target="_blank" class="button alt">Learn More</a></li>
-									</ul>
-								</section>
-
-							</div>
-							<div class="6u 12u(narrower)">
-
-								<section class="box special">
-									<img ng-src='{{data.tourists[1].image_url}}'>
-									<h3>{{data.tourists[1].name}}</h3>
-									<p class='phone-number'>{{data.tourists[1].display_phone}}</p>
-									<p>{{data.tourists[1].snippet_text}}</p>
-									<ul class="actions">
-										<li><a href="{{data.tourists[1].url}}" target="_blank" class="button alt">Learn More</a></li>
-									</ul>
-								</section>
-
-							</div>
-
-						<div class="row">
-
-							<div class="6u 12u(narrower)">
-
-								<section class="box special">
-									<img ng-src='{{data.tourists[2].image_url}}'>
-									<h3>{{data.tourists[2].name}}</h3>
-									<p class='phone-number'>{{data.tourists[2].display_phone}}</p>
-									<p>{{data.tourists[2].snippet_text}}</p>
-									<ul class="actions">
-										<li><a href="{{data.tourists[2].url}}" target="_blank" class="button alt">Learn More</a></li>
-									</ul>
-								</section>
-
-							</div>
-							<div class="6u 12u(narrower)">
-
-								<section class="box special">
-									<img ng-src='{{data.tourists[3].image_url}}'>
-									<h3>{{data.tourists[3].name}}</h3>
-									<p class='phone-number'>{{data.tourists[3].display_phone}}</p>
-									<p>{{data.tourists[3].snippet_text}}</p>
-									<ul class="actions">
-										<li><a href="{{data.tourists[3].url}}" target="_blank" class="button alt">Learn More</a></li>
-									</ul>
-								</section>
-							</div>
+						<div class="features-row" >
+							<section ng-repeat='tourists in data.tourists' ng-show='$index<2'>
+								<img ng-src='{{tourists.image_url}}'>
+								<h3>{{tourists.name}}</h3>
+								<p class='phone-number'>{{tourists.display_phone}}</p>
+								<p>{{tourists.snippet_text}}</p>
+								<p class='review-count'>{{tourists.review_count}} Reviews</p>
+								<img class='rating' src='{{tourists.rating_img_url_small}}'>
+								<ul class="actions">
+									<li><a href="{{tourists.url}}" target="_blank" class="button alt">Learn More</a></li>
+								</ul>
+							</section>
 						</div>
+						<div class="features-row" >
+							<section ng-repeat='tourists in data.tourists' ng-show='$index>1'>
+								<img ng-src='{{tourists.image_url}}'>
+								<h3>{{tourists.name}}</h3>
+								<p class='phone-number'>{{tourists.display_phone}}</p>
+								<p>{{tourists.snippet_text}}</p>
+								<p class='review-count'>{{tourists.review_count}} Reviews</p>
+								<img class='rating' src='{{tourists.rating_img_url_small}}'>
+								<ul class="actions">
+									<li><a href="{{tourists.url}}" target="_blank" class="button alt">Learn More</a></li>
+								</ul>
+							</section>
 						</div>
 					</section>
 
-					<section class="box special features" ng-show="yoga && data.yoga.length>0">
+					<section class="box special features" id="yoga" ng-show="yoga && data.yoga.length>0">
 						<h5>Yoga</h5>
-						<div class="features-row">
-							<section>
-								<img ng-src='{{data.yoga[0].image_url}}' style="border-radius: 50%;">
-								<h3>{{data.yoga[0].name}}</h3>
-								<p class='phone-number'>{{data.yoga[0].display_phone}}</p>
-								<p>{{data.yoga[0].snippet_text}}</p>
+						<div class="features-row" >
+							<section ng-repeat='yoga in data.yoga' ng-show='$index<2'>
+								<img ng-src='{{yoga.image_url}}' style="border-radius: 50%;">
+								<h3>{{yoga.name}}</h3>
+								<p class='phone-number'>{{yoga.display_phone}}</p>
+								<p>{{yoga.snippet_text}}</p>
+								<p class='review-count'>{{yoga.review_count}} Reviews</p>
+								<img class='rating' src='{{yoga.rating_img_url_small}}'>
 								<ul class="actions">
-									<li><a href="{{data.yoga[0].url}}" target="_blank" class="button alt">Learn More</a></li>
+									<li><a href="{{yoga.url}}" target="_blank" class="button alt">Learn More</a></li>
 								</ul>
 							</section>
-							<section>
-								<img ng-src='{{data.yoga[1].image_url}}' style="border-radius: 50%;">
-								<h3>{{data.yoga[1].name}}</h3>
-								<p class='phone-number'>{{data.yoga[1].display_phone}}</p>
-								<p>{{data.yoga[1].snippet_text}}</p>
+						</div>
+						<div class="features-row" >
+							<section ng-repeat='yoga in data.yoga' ng-show='$index>1'>
+								<img ng-src='{{yoga.image_url}}' style="border-radius: 50%;">
+								<h3>{{yoga.name}}</h3>
+								<p class='phone-number'>{{yoga.display_phone}}</p>
+								<p>{{yoga.snippet_text}}</p>
+								<p class='review-count'>{{yoga.review_count}} Reviews</p>
+								<img class='rating' src='{{yoga.rating_img_url_small}}'>
 								<ul class="actions">
-									<li><a href="{{data.yoga[1].url}}" target="_blank" class="button alt">Learn More</a></li>
+									<li><a href="{{yoga.url}}" target="_blank" class="button alt">Learn More</a></li>
 								</ul>
 							</section>
 						</div>
 					</section>
+
 				</section>
-
-
 
 			<!-- CTA -->
 				<section id="cta">
